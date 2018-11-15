@@ -1,0 +1,77 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md py-5" style="font-family: Montserrat;">
+            <span class="span-1">AWS | </span>
+            <span class="span-2">Spring Boot Image Upload to S3 Bucket</span>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4 bg-light p-5 rounded">
+            <div class="col-md card border-0 bg-secondary text-center text-white p-5">
+                <input
+                    type="file"
+                    class="form-control custom-file-input"
+                    id="imageUpload"
+                    ngf-select=""
+                    ng-model="image"
+                    name="image"
+                    ngf-accept="'image/*'"
+                    required=""
+                />
+                <label for="imageUpload w-100">
+                    <div class="div-upload">
+                        <span class="glyphicon glyphicon-circle-arrow-up" aria-hidden="true"></span>
+                        <span class="span-alt">click here to add image</span>
+                    </div>
+                </label>
+            </div>
+
+            <div class="col-md" ng-show="image">
+                <p>Image</p>
+                {{ image.name }}
+            </div>
+
+            <div class="col-md" ng-show="message.message">
+                <span class="green" ng-show="message.status">{{ message.message }}</span>
+                <span class="red" ng-show="!message.status">{{ message.message }}</span>
+            </div>
+
+            <div class="pt-5">
+                <button class="btn btn-primary btn-lg btn-block" type="submit" ng-click="upload()">
+                    Upload
+                </button>
+                <button class="btn btn-secondary btn-sm btn-block" type="reset" ng-click="clear()">
+                    Clear
+                </button>
+            </div>
+        </div>
+
+        <div class="col-md bg-primary text-white text-center p-5 rounded">
+            <p class="lead">
+                Replace the following credentials in <i><b>application.properties</b></i>
+            </p>
+            <br />
+            <p class="text-justify pl-5 ml-5 pt-5 font-weight-light">
+                client-key : activated client id <br />
+                secret-key : client secret<br />
+                bucket-name : the bucket name where to upload the image<br />
+                region : region<br />
+            </p>
+        </div>
+    </div>
+
+    <div class="row my-5">
+        <div class="col-md">
+            <small>Check out other projects </small><br /><br />
+            <a class="disabled" href="https://github.com/athiththan11" target="_blank">
+                <i data-feather="github"></i> Github Repo
+            </a>
+            <br /><br />
+        </div>
+    </div>
+</div>
+
+<script>
+    feather.replace();
+</script>
